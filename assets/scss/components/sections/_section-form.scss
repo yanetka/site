@@ -1,0 +1,97 @@
+@use "../../mixins" as *;
+@use "../../presets" as *;
+
+::-webkit-input-placeholder {
+    color: $color-gray;
+}
+:-moz-placeholder {
+    color: $color-gray;
+}
+::-moz-placeholder { 
+    color: $color-gray;
+}
+:-ms-input-placeholder {
+    color: $color-gray;
+}
+
+.form {
+    background-color: $color-primary;
+
+    &__container {
+        @extend %container;
+    }
+    &__holder {
+        width: 100%;
+        height: 120px;
+
+        @include md {
+            height: auto;
+        }
+    }
+}
+
+.form-block {
+    &__body {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        padding: 30px 0px 10px 0px;
+        margin: 0px -10px -20px -10px;
+        flex-wrap: wrap;
+    }
+    &__column {
+        padding: 0px 10px 20px 10px;
+        flex: 0 1 33.33333%;
+
+        @include md {
+            flex: 0 1 50%;
+        }
+        @include sm {
+            flex: 0 1 100%;
+        }
+    }
+    &__column:first-child {
+        @include md {
+            flex: 1 1 100%;
+        }
+    }
+    &__input {
+        color: $color-light;
+        font-size: 1.125rem;
+        letter-spacing: 0.15em;
+        line-height: 2.166em;
+        font-weight: 400;
+        padding: 0px 0px 0px 30px;
+        background-color: #38405A;
+        transition: background-color 0.3s linear;
+    }
+    &__input:hover {
+        background-color: #4c546b;
+        border: 2px solid #6F7588;
+        border-bottom: 2px solid $color-light;
+        padding: 0px 0px 0px 30px;
+    }
+    &__input:focus {
+        outline: none;
+        background-color: #4c546b;
+        border: 2px solid #6F7588;
+        border-bottom: 2px solid $color-light;
+        padding: 0px 0px 0px 30px;
+    }
+    &__submit {
+        font-size: 1.125rem;
+        letter-spacing: 0.0998em;
+        color: $color-light;
+        font-weight: 400;
+        padding-bottom: 3px;
+        background-color: #424A63;
+        transition: background-color 0.3s linear;
+        cursor: pointer;
+    }
+    &__submit:hover {
+        padding: 0px 0px 2px 0px;
+        border: 2px solid $color-light;
+        padding-bottom: 2px;
+        background-color: $color-accent;
+    }
+}

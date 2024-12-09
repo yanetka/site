@@ -1,0 +1,87 @@
+@use "../presets" as *;
+@use "../mixins" as *;
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.5em 1em;
+
+    transition: background-color 0.5s;
+    letter-spacing: 0.1em;
+
+    border-width: 2px;
+    border-style: solid;
+
+    &:hover,
+    &:focus {
+        background-color: $color-accent;
+    }
+}
+
+.-light {
+    border-color: $color-light;
+    background-color: rgba($color-light, 0.1);
+
+    @include lg-min {
+        width: 250px;
+        height: 60px;
+
+        font-size: 1.125rem;
+    }
+    @include lg-md {
+        width: 200px;
+        height: 50px;
+    }
+    @include md {
+        width: 170px;
+        height: 40px;
+    }
+}
+
+.-primary {
+    height: 60px;
+
+    border-color: $color-primary;
+    background-color: rgba($color-primary, 0.8);
+
+    font-size: 1.125rem;
+
+    @include sm-min {
+        width: 350px;
+    }
+    @include sm {
+        width: 100%;
+        margin: 0 20px;
+    }
+}
+
+.-form-size {
+    width: 100%;
+    gap: $gap;
+    height: 60px;
+    border: 0;
+    
+    border: 2px solid #38405A;
+    border-bottom: 2px solid #6A7083;
+}
+
+.-brd-del {
+    border: 2px solid #424A63;
+    border-bottom: 2px solid #6A7083;
+}
+
+.-focus-col {
+    display: block;
+    transition: color 0.5s;
+
+    &:hover,
+    &:focus {
+        color: $color-accent;
+    }
+}
+
+.visually-hidden {
+    @include visually-hidden;
+}

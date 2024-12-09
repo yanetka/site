@@ -1,0 +1,152 @@
+@use "../../presets" as *;
+@use "../../mixins" as *;
+
+.menu {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    @include md {
+        background-color: rgba($color-gray-dark, 0.25);
+
+        @include box-shadow;
+    }
+    &__btn {
+        position: relative;
+
+        width: 30px;
+        height: 22.5px;
+        margin: $gap 0;
+
+        cursor: pointer;
+        transition: 0.5s ease-in-out;
+
+        @include md-min {
+            display: none;
+        }
+
+        &-row {
+            position: absolute;
+            left: 0;
+
+            display: block;
+
+            width: 100%;
+            height: 3px;
+
+            transition: 0.25s ease-in-out;
+
+            opacity: 1;
+            border-radius: 3px;
+            background: $color-light;
+
+            &:nth-child(1) {
+                top: 0;
+
+                transform-origin: left center;
+            }
+            &:nth-child(2) {
+                top: 9px;
+
+                transform-origin: left center;
+            }
+            &:nth-child(3) {
+                top: 18px;
+
+                transform-origin: left center;
+            }
+        }
+        &--active span {
+            &:nth-child(1) {
+                top: -3.5px;
+                left: 4px;
+
+                transform: rotate(45deg);
+            }
+        }
+        &--active span {
+            &:nth-child(2) {
+                width: 0;
+
+                opacity: 0;
+            }
+        }
+        &--active span {
+            &:nth-child(3) {
+                top: 17.5px;
+                left: 4px;
+
+                transform: rotate(-45deg);
+            }
+        }
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @extend %container;
+    }
+    &__logo {
+        letter-spacing: 0.22em;
+
+        font-size: 1.5rem;
+    }
+    &__link-logo {
+        display: block;
+
+        padding: 20px 20px 20px 0;
+    }
+    &__accent {
+        display: inline-block;
+
+        margin-right: 4px;
+        padding: 14px 1px 13px 5px;
+
+        border: 3px solid $color-highlight;
+    }
+    &__list {
+        @include md-min {
+            display: flex;
+
+        @include unlist(0 (-$gap) 0 0);
+        }
+        @include md {
+            position: absolute;
+            top: 65%;
+            right: $gap;
+
+            display: none;
+
+            background-color: rgba($color-gray-dark, 0.9);
+
+            @include unlist;
+            @include box-shadow;
+        }
+    }
+    &__item {
+        margin: $gap $gap-sm;
+    }
+    &__link {
+        display: block;
+
+        transition: color 0.5s;
+        letter-spacing: 0.1em;
+
+        font-size: 1.125rem;
+
+        @include md-min {
+            padding: $gap $gap-sm;
+        }
+        @include md {
+            padding: $gap-sm $gap;
+        }
+
+        &:hover,
+        &:focus {
+            color: $color-accent;
+        }
+    }
+}
